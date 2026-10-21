@@ -173,7 +173,7 @@ class VerifyView(discord.ui.View):
                         "2. Enter this command:\n"
                         "```cmd\nwhoami /user\n```\n"
                         "3. Copy the SID shown in the `SID` column and use it in verification.\n"
-                        "4. Example: `S-1-5-21-3847773099-4...`",,
+                        "4. Example: `S-1-5-21-3847773099-4...`",
             color=discord.Color.from_rgb(252, 3, 119)
         )
         embed.set_footer(text="DARK CITY // PREMIUM ACCESS")
