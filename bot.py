@@ -153,17 +153,17 @@ class VerifyView(discord.ui.View):
         interaction: discord.Interaction,
         button: discord.ui.Button
     ):
-        # Image-এর অনুকরণে SID পাওয়ার নিয়মগুলো একটি সুন্দর এমবেড মেসেজে দেখানো হলো[cite: 1]
+        # Image-er anurupe SID pabar niyom gulo ekta shundor embed message-e dewa holo
         embed = discord.Embed(
-            title="How to Get Your PC SID",
+            title="🖥️ How to Get Your PC SID",
             description="Follow these steps to find your Windows SID:\n\n"
-                        "**1.** Press `Win + R` and type `cmd`.\n"
-                        "**2.** Enter this command:\n"
+                        "1. Press `Win + R` and type `cmd`.\n"
+                        "2. Enter this command:\n"
                         "```cmd\nwhoami /user\n```\n"
-                        "**3.** Copy the SID shown in the `SID` column and use it in verification.",
-            color=discord.Color.from_rgb(52, 152, 219)
+                        "3. Copy the SID shown in the `SID` column and use it in verification.",
+            color=discord.Color.from_rgb(252, 3, 119)
         )
-        embed.set_footer(text="Dark City • SID Guide")
+        embed.set_footer(text="Dark City • License Verification")
         await interaction.response.send_message(embed=embed, ephemeral=True)
 
     @discord.ui.button(
@@ -383,6 +383,7 @@ class ResetSIDModal(discord.ui.Modal, title="Reset Your SID"):
 )
 async def verify(interaction: discord.Interaction):
     try:
+        # Apnar dewa image-er moto purber style-i rakha holo
         embed = discord.Embed(
             title="Dark City Verify",
             description="Choose an option below.",
