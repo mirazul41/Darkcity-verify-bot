@@ -143,7 +143,7 @@ class VerifyView(discord.ui.View):
         await interaction.response.send_modal(VerifyModal())
 
     @discord.ui.button(
-        label="Reset Your ",
+        label="Reset Your SID",
         style=discord.ButtonStyle.danger,
         emoji="🔄",
         custom_id="dark_city_reset_btn"
@@ -153,27 +153,26 @@ class VerifyView(discord.ui.View):
         interaction: discord.Interaction,
         button: discord.ui.Button
     ):
-        await interaction.response.send_modal(ResetModal())
+        await interaction.response.send_modal(ResetSIDModal())
 
     @discord.ui.button(
-        label="Get Your SID ",
+        label="Get Your SID",
         style=discord.ButtonStyle.secondary,
         emoji="💻",
-        custom_id="dark_city_get__btn"
+        custom_id="dark_city_get_sid_btn"
     )
-    async def get__button(
+    async def get_sid_button(
         self,
         interaction: discord.Interaction,
         button: discord.ui.Button
     ):
         embed = discord.Embed(
-            title="🖥️ How to Get Your PC SID ",
-            description="Follow these steps to find your Windows :\n\n"
+            title="🖥️ How to Get Your PC SID",
+            description="Follow these steps to find your Windows SID:\n\n"
                         "1. Press `Win + R` and type `cmd`.\n"
                         "2. Enter this command:\n"
                         "```cmd\nwhoami /user\n```\n"
-                        "3. Copy the SID shown in the `SID` column and use it in verification.\n"
-                        "4. Example: `S-1-5-21-3847773099-4......`",
+                        "3. Copy the SID shown in the `SID` column and use it in verification.",
             color=discord.Color.from_rgb(252, 3, 119)
         )
         embed.set_footer(text="DARK CITY // PREMIUM ACCESS")
@@ -385,16 +384,16 @@ async def verify(interaction: discord.Interaction):
     try:
         # বক্সটি বড় দেখানোর জন্য অতিরিক্ত লাইন ব্রেক (spacing) যোগ করা হলো
         embed = discord.Embed(
-            title="DARK CITY PREMIUM ACCESS",
-            description="Your setup. Your license. Your entry.\n"
-                        "─────────────────────────────────────────────\n\n"
-                        " **LICENSE KEY AUTHENTICATION SYSTEM**\n\n"
-                        "• Need Your PC SID\n"
-                        "• License Key provided by us\n"
-                        "─────────────────────────────────────────────",
+            title="⚔️ PLAYER ACCESS",
+            description="Your setup. Your license. Your entry.\n\n"
+                        "────────────────────────\n\n"
+                        "🎯 **LICENSE AUTHENTICATION**\n"
+                        "• Your PC SID\n"
+                        "• License Key provided by us\n\n"
+                        "────────────────────────",
             color=discord.Color.from_rgb(252, 3, 119)
         )
-        embed.set_footer(text="Verify and enjoy our premium panel")
+        embed.set_footer(text="DARK CITY // PREMIUM ACCESS")
 
         await interaction.response.send_message(
             embed=embed,
@@ -408,6 +407,7 @@ async def verify(interaction: discord.Interaction):
                 "⚠️ Could not open the verification panel. Please try again.",
                 ephemeral=True
             )
+
 # ==========================================
 # 8. BOT STARTUP
 # ==========================================
