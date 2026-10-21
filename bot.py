@@ -131,7 +131,7 @@ class VerifyView(discord.ui.View):
         super().__init__(timeout=None)
 
     @discord.ui.button(
-        label="Verify License",
+        label="          Verify License          ",
         style=discord.ButtonStyle.primary,
         emoji="🛡️",
         custom_id="dark_city_verify_btn",
@@ -145,7 +145,7 @@ class VerifyView(discord.ui.View):
         await interaction.response.send_modal(VerifyModal())
 
     @discord.ui.button(
-        label="Reset Your SID",
+        label="          Reset Your SID          ",
         style=discord.ButtonStyle.primary,
         emoji="🔄",
         custom_id="dark_city_reset_btn",
@@ -159,7 +159,7 @@ class VerifyView(discord.ui.View):
         await interaction.response.send_modal(ResetSIDModal())
 
     @discord.ui.button(
-        label="Get SID",
+        label="             Get SID             ",
         style=discord.ButtonStyle.primary,
         emoji="🖥️",
         custom_id="dark_city_get_sid_btn",
@@ -445,7 +445,7 @@ async def on_ready():
 if __name__ == "__main__":
     if not TOKEN:
         raise RuntimeError(
-            "DISCORD_BOT_TOKEN or DISCRIPT_TOKEN is missing. Set it before starting the bot."
+            "DISCORD_BOT_TOKEN or DISCORD_TOKEN is missing. Set it before starting the bot."
         )
 
     client.run(TOKEN)
