@@ -382,13 +382,15 @@ class ResetSIDModal(discord.ui.Modal, title="Reset Your SID"):
 )
 async def verify(interaction: discord.Interaction):
     try:
-        # আগের মতো বড় ও আকর্ষণীয় লুক দেওয়ার জন্য প্লেয়ার এক্সেস ও লাইসেন্স অথেন্টিকেশন স্টাইল ব্যবহার করা হলো
+        # বক্সটি বড় দেখানোর জন্য অতিরিক্ত লাইন ব্রেক (spacing) যোগ করা হলো
         embed = discord.Embed(
             title="⚔️ PLAYER ACCESS",
             description="Your setup. Your license. Your entry.\n\n"
+                        "────────────────────────\n\n"
                         "🎯 **LICENSE AUTHENTICATION**\n"
                         "• Your PC SID\n"
-                        "• License Key provided by us",
+                        "• License Key provided by us\n\n"
+                        "────────────────────────",
             color=discord.Color.from_rgb(252, 3, 119)
         )
         embed.set_footer(text="DARK CITY // PREMIUM ACCESS")
