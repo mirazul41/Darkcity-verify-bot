@@ -143,7 +143,7 @@ class VerifyView(discord.ui.View):
         await interaction.response.send_modal(VerifyModal())
 
     @discord.ui.button(
-        label="Reset Your SID",
+        label="Reset Your ",
         style=discord.ButtonStyle.danger,
         emoji="🔄",
         custom_id="dark_city_reset_btn"
@@ -153,26 +153,27 @@ class VerifyView(discord.ui.View):
         interaction: discord.Interaction,
         button: discord.ui.Button
     ):
-        await interaction.response.send_modal(ResetSIDModal())
+        await interaction.response.send_modal(ResetModal())
 
     @discord.ui.button(
-        label="Get Your SID",
+        label="Get Your ",
         style=discord.ButtonStyle.secondary,
         emoji="💻",
-        custom_id="dark_city_get_sid_btn"
+        custom_id="dark_city_get__btn"
     )
-    async def get_sid_button(
+    async def get__button(
         self,
         interaction: discord.Interaction,
         button: discord.ui.Button
     ):
         embed = discord.Embed(
-            title="🖥️ How to Get Your PC SID",
-            description="Follow these steps to find your Windows SID:\n\n"
+            title="🖥️ How to Get Your PC ",
+            description="Follow these steps to find your Windows :\n\n"
                         "1. Press `Win + R` and type `cmd`.\n"
                         "2. Enter this command:\n"
                         "```cmd\nwhoami /user\n```\n"
-                        "3. Copy the SID shown in the `SID` column and use it in verification.",
+                        "3. Copy the SID shown in the `SID` column and use it in verification.\n"
+                        "4. Example: `S-1-5-21-3847773099-4......`",
             color=discord.Color.from_rgb(252, 3, 119)
         )
         embed.set_footer(text="DARK CITY // PREMIUM ACCESS")
