@@ -175,7 +175,7 @@ class VerifyView(discord.ui.View):
                         "3. Copy the SID shown in the `SID` column and use it in verification.",
             color=discord.Color.from_rgb(252, 3, 119)
         )
-        embed.set_footer(text="Dark City • License Verification")
+        embed.set_footer(text="DARK CITY // PREMIUM ACCESS")
         await interaction.response.send_message(embed=embed, ephemeral=True)
 
 
@@ -382,12 +382,16 @@ class ResetSIDModal(discord.ui.Modal, title="Reset Your SID"):
 )
 async def verify(interaction: discord.Interaction):
     try:
+        # আগের মতো বড় ও আকর্ষণীয় লুক দেওয়ার জন্য প্লেয়ার এক্সেস ও লাইসেন্স অথেন্টিকেশন স্টাইল ব্যবহার করা হলো
         embed = discord.Embed(
-            title="Dark City Verify",
-            description="Choose an option below.",
+            title="⚔️ PLAYER ACCESS",
+            description="Your setup. Your license. Your entry.\n\n"
+                        "🎯 **LICENSE AUTHENTICATION**\n"
+                        "• Your PC SID\n"
+                        "• License Key provided by us",
             color=discord.Color.from_rgb(252, 3, 119)
         )
-        embed.set_footer(text="Dark City • License Verification")
+        embed.set_footer(text="DARK CITY // PREMIUM ACCESS")
 
         await interaction.response.send_message(
             embed=embed,
