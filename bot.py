@@ -143,30 +143,6 @@ class VerifyView(discord.ui.View):
         await interaction.response.send_modal(VerifyModal())
 
     @discord.ui.button(
-        label="Get Your SID",
-        style=discord.ButtonStyle.secondary,
-        emoji="💻",
-        custom_id="dark_city_get_sid_btn"
-    )
-    async def get_sid_button(
-        self,
-        interaction: discord.Interaction,
-        button: discord.ui.Button
-    ):
-        # Image-er anurupe SID pabar niyom gulo ekta shundor embed message-e dewa holo
-        embed = discord.Embed(
-            title="🖥️ How to Get Your PC SID",
-            description="Follow these steps to find your Windows SID:\n\n"
-                        "1. Press `Win + R` and type `cmd`.\n"
-                        "2. Enter this command:\n"
-                        "```cmd\nwhoami /user\n```\n"
-                        "3. Copy the SID shown in the `SID` column and use it in verification.",
-            color=discord.Color.from_rgb(252, 3, 119)
-        )
-        embed.set_footer(text="Dark City • License Verification")
-        await interaction.response.send_message(embed=embed, ephemeral=True)
-
-    @discord.ui.button(
         label="Reset Your SID",
         style=discord.ButtonStyle.danger,
         emoji="🔄",
@@ -178,6 +154,29 @@ class VerifyView(discord.ui.View):
         button: discord.ui.Button
     ):
         await interaction.response.send_modal(ResetSIDModal())
+
+    @discord.ui.button(
+        label="Get Your SID",
+        style=discord.ButtonStyle.secondary,
+        emoji="💻",
+        custom_id="dark_city_get_sid_btn"
+    )
+    async def get_sid_button(
+        self,
+        interaction: discord.Interaction,
+        button: discord.ui.Button
+    ):
+        embed = discord.Embed(
+            title="🖥️ How to Get Your PC SID",
+            description="Follow these steps to find your Windows SID:\n\n"
+                        "1. Press `Win + R` and type `cmd`.\n"
+                        "2. Enter this command:\n"
+                        "```cmd\nwhoami /user\n```\n"
+                        "3. Copy the SID shown in the `SID` column and use it in verification.",
+            color=discord.Color.from_rgb(252, 3, 119)
+        )
+        embed.set_footer(text="Dark City • License Verification")
+        await interaction.response.send_message(embed=embed, ephemeral=True)
 
 
 class VerifyModal(discord.ui.Modal, title="Verify License"):
@@ -383,7 +382,6 @@ class ResetSIDModal(discord.ui.Modal, title="Reset Your SID"):
 )
 async def verify(interaction: discord.Interaction):
     try:
-        # Apnar dewa image-er moto purber style-i rakha holo
         embed = discord.Embed(
             title="Dark City Verify",
             description="Choose an option below.",
