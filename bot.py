@@ -156,7 +156,7 @@ class VerifyView(discord.ui.View):
         await interaction.response.send_modal(ResetModal())
 
     @discord.ui.button(
-        label="Get Your ",
+        label="Get Your SID ",
         style=discord.ButtonStyle.secondary,
         emoji="💻",
         custom_id="dark_city_get__btn"
@@ -167,7 +167,7 @@ class VerifyView(discord.ui.View):
         button: discord.ui.Button
     ):
         embed = discord.Embed(
-            title="🖥️ How to Get Your PC ",
+            title="🖥️ How to Get Your PC SID ",
             description="Follow these steps to find your Windows :\n\n"
                         "1. Press `Win + R` and type `cmd`.\n"
                         "2. Enter this command:\n"
