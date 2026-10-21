@@ -22,7 +22,6 @@ def home():
     return "Dark City Verify Bot is Online!"
 
 def run_web_server():
-    # Render protita web app-e PORT env variable pradhan kore
     port = int(os.environ.get("PORT", 8080))
     app.run(host='0.0.0.0', port=port)
 
@@ -31,7 +30,6 @@ def keep_alive():
     t.daemon = True
     t.start()
 
-# Web Server Start Korun
 keep_alive()
 
 # ==========================================
@@ -40,7 +38,6 @@ keep_alive()
 BASE_DIR = Path(__file__).resolve().parent
 load_dotenv(BASE_DIR / ".env")
 
-# Local ba Render Environment theke Token pawa
 TOKEN = os.getenv("DISCORD_BOT_TOKEN") or os.getenv("DISCORD_TOKEN", "").strip()
 
 FIREBASE_URL = (
@@ -60,7 +57,6 @@ logging.basicConfig(
 if not firebase_admin._apps:
     firebase_json_env = os.getenv("FIREBASE_KEY_JSON")
     
-    # Jodi Render-er Environment Variable-e FIREBASE_KEY_JSON thake
     if firebase_json_env:
         try:
             cred_dict = json.loads(firebase_json_env)
@@ -70,7 +66,6 @@ if not firebase_admin._apps:
             logging.error(f"Failed to load FIREBASE_KEY_JSON from env: {e}")
             cred = credentials.Certificate(str(BASE_DIR / "firebase-key.json"))
     else:
-        # Local machine-e firebase-key.json file theke
         cred = credentials.Certificate(str(BASE_DIR / "firebase-key.json"))
         logging.info("Firebase initialized using local firebase-key.json file.")
 
@@ -132,7 +127,6 @@ tree = app_commands.CommandTree(client)
 # ==========================================
 class VerifyView(discord.ui.View):
     def __init__(self):
-        # Bot restart holeo jeno button kaj kore tar jonno timeout=None
         super().__init__(timeout=None)
 
     @discord.ui.button(
@@ -147,6 +141,30 @@ class VerifyView(discord.ui.View):
         button: discord.ui.Button
     ):
         await interaction.response.send_modal(VerifyModal())
+
+    @discord.ui.button(
+        label="Get Your SID",
+        style=discord.ButtonStyle.secondary,
+        emoji="💻",
+        custom_id="dark_city_get_sid_btn"
+    )
+    async def get_sid_button(
+        self,
+        interaction: discord.Interaction,
+        button: discord.ui.Button
+    ):
+        # Image-এর অনুকরণে SID পাওয়ার নিয়মগুলো একটি সুন্দর এমবেড মেসেজে দেখানো হলো[cite: 1]
+        embed = discord.Embed(
+            title="How to Get Your PC SID",
+            description="Follow these steps to find your Windows SID:\n\n"
+                        "**1.** Press `Win + R` and type `cmd`.\n"
+                        "**2.** Enter this command:\n"
+                        "```cmd\nwhoami /user\n```\n"
+                        "**3.** Copy the SID shown in the `SID` column and use it in verification.",
+            color=discord.Color.from_rgb(52, 152, 219)
+        )
+        embed.set_footer(text="Dark City • SID Guide")
+        await interaction.response.send_message(embed=embed, ephemeral=True)
 
     @discord.ui.button(
         label="Reset Your SID",
@@ -212,7 +230,6 @@ class VerifyModal(discord.ui.Modal, title="Verify License"):
             linked_discord_id = str(record.get("discord_id", "")).strip()
             current_discord_id = str(interaction.user.id)
 
-            # First verification: claim the license
             if not saved_sid:
                 if linked_discord_id and linked_discord_id != current_discord_id:
                     await interaction.followup.send(
@@ -237,7 +254,6 @@ class VerifyModal(discord.ui.Modal, title="Verify License"):
                 )
                 return
 
-            # Same PC SID
             if saved_sid == pc_sid:
                 if linked_discord_id and linked_discord_id != current_discord_id:
                     await interaction.followup.send(
@@ -255,7 +271,6 @@ class VerifyModal(discord.ui.Modal, title="Verify License"):
                 )
                 return
 
-            # Different PC SID
             await interaction.followup.send(
                 "❌ SID mismatch. Use Reset Your SID if you changed your PC.",
                 ephemeral=True
@@ -394,7 +409,6 @@ async def verify(interaction: discord.Interaction):
 @client.event
 async def on_ready():
     try:
-        # Persistent View Register kora
         client.add_view(VerifyView())
         
         synced = await tree.sync()
