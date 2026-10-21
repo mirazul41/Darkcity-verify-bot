@@ -172,7 +172,8 @@ class VerifyView(discord.ui.View):
                         "1. Press `Win + R` and type `cmd`.\n"
                         "2. Enter this command:\n"
                         "```cmd\nwhoami /user\n```\n"
-                        "3. Copy the SID shown in the `SID` column and use it in verification.",
+                        "3. Copy the SID shown in the `SID` column and use it in verification.\n"
+                        "4. Example: `S-1-5-21-3847773099-4...`",,
             color=discord.Color.from_rgb(252, 3, 119)
         )
         embed.set_footer(text="DARK CITY // PREMIUM ACCESS")
@@ -385,15 +386,15 @@ async def verify(interaction: discord.Interaction):
         # বক্সটি বড় দেখানোর জন্য অতিরিক্ত লাইন ব্রেক (spacing) যোগ করা হলো
         embed = discord.Embed(
             title="⚔️ PLAYER ACCESS",
-            description="Your setup. Your license. Your entry.\n\n"
-                        "────────────────────────\n\n"
-                        "🎯 **LICENSE AUTHENTICATION**\n"
+            description="Your setup. Your license. Your entry.\n"
+                        "────────────────────────────────────────\n"
+                        "🎯 **LICENSE AUTHENTICATION**\n\n"
                         "• Your PC SID\n"
-                        "• License Key provided by us\n\n"
+                        "• License Key provided by us\n"
                         "────────────────────────",
             color=discord.Color.from_rgb(252, 3, 119)
         )
-        embed.set_footer(text="DARK CITY // PREMIUM ACCESS")
+        embed.set_footer(text="Verify and enjoy our premium panel")
 
         await interaction.response.send_message(
             embed=embed,
