@@ -385,11 +385,11 @@ async def verify(interaction: discord.Interaction):
         # বক্সটি বড় দেখানোর জন্য অতিরিক্ত লাইন ব্রেক (spacing) যোগ করা হলো
         embed = discord.Embed(
             title="DARK CITY PREMIUM ACCESS",
-            description="Your setup. Your license. Your entry.\n\n"
+            description="Your setup. Your license. Your entry.\n"
                         "─────────────────────────────────────────────\n\n"
-                        " **LICENSE KEY AUTHENTICATION SYSTEM**\n"
+                        " **LICENSE KEY AUTHENTICATION SYSTEM**\n\n"
                         "• Need Your PC SID\n"
-                        "• License Key provided by us\n\n"
+                        "• License Key provided by us\n"
                         "─────────────────────────────────────────────",
             color=discord.Color.from_rgb(252, 3, 119)
         )
