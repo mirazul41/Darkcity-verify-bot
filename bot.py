@@ -382,20 +382,16 @@ class ResetSIDModal(discord.ui.Modal, title="Reset Your SID"):
 )
 async def verify(interaction: discord.Interaction):
     try:
+        # বক্সটি বড় দেখানোর জন্য অতিরিক্ত লাইন ব্রেক (spacing) যোগ করা হলো
         embed = discord.Embed(
-            title="DARK CITY PREMIUM ACCESS",
-            description="LICENSE AUTHENTICATION SYSTEM",
+            title="⚔️ PLAYER ACCESS",
+            description="Your setup. Your license. Your entry.\n\n"
+                        "─────────────────────────────────────────────\n\n"
+                        "🎯 **LICENSE AUTHENTICATION**\n"
+                        "• Your PC SID\n"
+                        "• License Key provided by us\n\n"
+                        "─────────────────────────────────────────────",
             color=discord.Color.from_rgb(252, 3, 119)
-        )
-        embed.add_field(
-            name="⚔️ PLAYER ACCESS", 
-            value="Your setup. Your license. Your entry.", 
-            inline=False
-        )
-        embed.add_field(
-            name="🎯 LICENSE AUTHENTICATION", 
-            value="• Your PC SID\n• License Key provided by us", 
-            inline=False
         )
         embed.set_footer(text="DARK CITY // PREMIUM ACCESS")
 
